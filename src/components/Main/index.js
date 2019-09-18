@@ -7,6 +7,18 @@ export default class Main extends Component {
     newTodo: ""
   };
 
+  componentDidMount() {
+    const todos = JSON.parse(localStorage.getItem("@tarefas/todos"));
+    if (todos) {
+      this.setState({ todos: todos})
+    }
+  }
+
+  componentDidUpdate() {
+    const todos = this.state.todos;
+    localStorage.setItem("@tarefas/todos", JSON.stringify(todos));
+  }
+
   handleKeyDown = e => {
     const { newTodo } = this.state;
 
