@@ -23,7 +23,7 @@ export const TextInput = styled.input`
   ::placeholder {
     font-style: italic;
     font-weight: 300;
-    color: #aaaaaa;
+    color: #999999;
   }
   width: 100%;
   font-size: 24px;
@@ -39,6 +39,33 @@ export const TextInput = styled.input`
 
 export const TodoList = styled.ul`
   list-style: none;
+`;
+
+export const Div = styled.div`
+  width: 600px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 58.8px;
+`;
+
+export const Button = styled.button`
+  font-size: 12px;
+  background-color: #ffffff;
+  color: red;
+  padding: 15px 32px;
+  width: 250px;
+  height: 58.8px;
+  border: outset;
+  border-width: 2px;
+  border-color: red;
+  &:hover {
+    background-color: red;
+    color: #ffffff;
+    border-color: #ffffff;
+    border: inset;
+  }
 `;
 
 export const TodoListItem = styled.li`

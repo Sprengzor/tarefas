@@ -1,5 +1,5 @@
 import React, { Component } from "react"; 
-import { Container, Title, Form, TextInput, TodoList, TodoListItem } from "./styles";
+import { Container, Title, Form, TextInput, TodoList, TodoListItem, Button, Div } from "./styles";
 
 export default class Main extends Component {
   state = {
@@ -45,6 +45,17 @@ export default class Main extends Component {
     this.setState({ ...this.state, todos });
   };
 
+  clearDoneHandler = () => {
+    let tasks = this.state.todos.filter(t => !t.completed);
+
+    this.setState({ todos: tasks});
+  }
+
+  clearAllHandler = () => {
+    const todos = [];
+    this.setState({ todos: todos});
+  }
+
   render() {
     return (
       <Container>
@@ -73,6 +84,10 @@ export default class Main extends Component {
             ))}
           </TodoList>
         </Form>
+        <Div>
+          <Button onClick={this.clearDoneHandler}>Clear Completed Tasks! <i class="fa fa-trash-o" aria-hidden="true"></i></Button>
+          <Button onClick={this.clearAllHandler}>Clear All Tasks! <i class="fa fa-trash-o" aria-hidden="true"></i></Button>
+        </Div>
       </Container>
     );
   }
